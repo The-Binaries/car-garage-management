@@ -94,7 +94,6 @@ const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
                     placeholder="Middle Name"
                     value={formData.middleName}
                     onChange={handleChange}
-                    required
                   />
                 </div>
                 <div className="field">
