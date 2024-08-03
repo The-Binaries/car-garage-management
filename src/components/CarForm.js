@@ -36,7 +36,7 @@ const CarForm = () => {
 
   return (
     <div style={{ margin: '100px' }}>
-      <h2 className="ui dividing header">Car Garage</h2>
+      <h2 className="ui dividing header">Car Form</h2>
       <button className="ui button primary" onClick={toggleModal}>
         Add a New Car
       </button>
