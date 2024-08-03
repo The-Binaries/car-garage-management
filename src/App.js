@@ -1,8 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
-import AdminForm from './components/AdminForm'
-import CarForm from './components/CarForm'
-// import CarList from './components/CarList'
+// import AdminForm from './components/AdminForm'
+import CarManagement from './components/CarManagement'
 import MechanicManagement from './components/MechanicManagement'
 
 
@@ -10,9 +9,9 @@ import MechanicManagement from './components/MechanicManagement'
 const App = () => {
   return (
     <div style={{padding: '2rem'}}>
-      <AdminForm />
+      {/* <AdminForm /> */}
       <Header />
-      <CarForm />
+      <CarManagement />
       <MechanicManagement />
     </div>
   )

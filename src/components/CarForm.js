@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const CarForm = () => {
+const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
   const initialFormData = {
     make: '',
     model: '',
@@ -13,6 +13,16 @@ const CarForm = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [isModalOpen, setIsModalOpen] = useState(false); 
 
+  useEffect(() => {
+    if (carToEdit) {
+      setFormData({
+        ...carToEdit,
+        experience: carToEdit.experience || ''
+      });
+      setIsModalOpen(true);
+    }
+  }, [carToEdit]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -23,8 +33,13 @@ const CarForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(formData, null, 2));
-    setIsModalOpen(false); 
+    if (carToEdit) {
+      addCar(formData, carToEdit.index);
+    } else {
+      addCar(formData);
+    }
+    setIsModalOpen(false);
+    setFormData(initialFormData);
   };
 
   const toggleModal = () => {
@@ -38,12 +53,13 @@ const CarForm = () => {
     <div style={{ margin: '100px' }}>
       <h2 className="ui dividing header">Car Form</h2>
       <button className="ui button primary" onClick={toggleModal}>
-        Add a New Car
+        {carToEdit ? 'Edit Car Details' : 'Add a New Car'}
       </button>
+
 
       {isModalOpen && (
         <div className="ui modal active" style={{ width: '80%' }}>
-          <div className="header">Add a new car</div>
+        <div className="header">{carToEdit ? 'Edit Car Details' : 'Add a new car'}</div>
           <i className="close icon" onClick={toggleModal}></i>
           <div className="content">
             <form className="ui form" onSubmit={handleSubmit}>
