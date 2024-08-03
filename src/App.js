@@ -9,7 +9,7 @@ import MechanicManagement from './components/MechanicManagement'
 
 const App = () => {
   return (
-    <div style={{padding: '4rem'}}>
+    <div style={{padding: '2rem'}}>
       <AdminForm />
       <Header />
       <CarForm />
