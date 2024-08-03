@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
   const initialFormData = {
+    id: '',
     firstName: '',
     middleName: '',
     lastName: '',
@@ -62,6 +63,16 @@ const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
           <i className="close icon" onClick={toggleModal}></i>
           <div className="content">
             <form className="ui form" onSubmit={handleSubmit}>
+            <div className="two wide field">
+                  <label>ID</label>
+                  <input
+                    type="number"
+                    name="id"
+                    placeholder="Mechanic ID"
+                    value={formData.id}
+                    onChange={handleChange}
+                  />
+                </div>
               <div className="three fields">
                 <div className="field">
                   <label>First Name</label>

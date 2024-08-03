@@ -6,6 +6,7 @@ const CarList = ({ cars, onEdit, onDelete }) => {
       <table className="ui celled table">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Make</th>
             <th>Model</th>
             <th>Color</th>
@@ -19,6 +20,7 @@ const CarList = ({ cars, onEdit, onDelete }) => {
           {cars && cars.length > 0 ? (
             cars.map((car, index) => (
               <tr key={index}>
+                <td data-label="ID">{car.id}</td>
                 <td data-label="Make">{car.make}</td>
                 <td data-label="Model">{car.model}</td>
                 <td data-label="Color">{car.color}</td>

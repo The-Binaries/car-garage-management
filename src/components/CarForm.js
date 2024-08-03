@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
   const initialFormData = {
+    id: '',
     make: '',
     model: '',
     color: '',
@@ -63,7 +64,17 @@ const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
           <i className="close icon" onClick={toggleModal}></i>
           <div className="content">
             <form className="ui form" onSubmit={handleSubmit}>
-              <div className="two fields">
+              <div className="three fields">
+              <div className="field">
+                  <label>ID</label>
+                  <input
+                    type="number"
+                    name="id"
+                    placeholder="Car ID"
+                    value={formData.id}
+                    onChange={handleChange}
+                  />
+                </div>
                 <div className="field">
                   <label>Make</label>
                   <input

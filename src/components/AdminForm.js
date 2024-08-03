@@ -1,25 +1,19 @@
 import React, { useState } from 'react';
 
-const AdminForm = () => {
+const AdminForm = ({ handleLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState(''); // 'success' or 'error'
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Define the credentials for comparison
-    const validEmail = 'anurag@gmail.com';
-    const validPassword = 'anuragsourabh';
 
-    // Check if the input values match the valid credentials
-    if (email === validEmail && password === validPassword) {
-      setMessage('Success');
-      setMessageType('success');
+    const loginSuccessful = handleLogin(email, password);
+
+    if (loginSuccessful) {
+      setMessage('Login successful!');
     } else {
       setMessage('Invalid email or password');
-      setMessageType('error');
     }
   };
 
@@ -46,17 +40,16 @@ const AdminForm = () => {
           />
         </div>
 
-        {message && (
-          <div className={`ui ${messageType} message`}>
-            <div className="header">{messageType === 'success' ? 'Success' : 'Error'}</div>
-            <p>{message}</p>
-          </div>
-        )}
-
         <button type="submit" className="ui button primary">
           Submit
         </button>
       </form>
+
+      {message && (
+        <div style={{ marginTop: '20px' }}>
+          <p>{message}</p>
+        </div>
+      )}
     </div>
   );
 };

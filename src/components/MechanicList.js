@@ -2,11 +2,12 @@ import React from 'react';
 
 const MechanicList = ({ mechanics, onEdit, onDelete }) => {
   return (
-    <div style={{ margin: '100px' }}>
+    <div style={{ margin: '100px', marginBottom: '200px' }}>
       <h2>Mechanic List</h2>
       <table className="ui celled table">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Expert Domain</th>
             <th>Experience (years)</th>
@@ -17,6 +18,7 @@ const MechanicList = ({ mechanics, onEdit, onDelete }) => {
           {mechanics && mechanics.length > 0 ? (
             mechanics.map((mechanic, index) => (
               <tr key={index}>
+                <td data-label="ID">{mechanic.id}</td>
                 <td data-label="Name">
                   {mechanic.firstName} {mechanic.middleName} {mechanic.lastName}
                 </td>
