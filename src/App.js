@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
-// import AdminForm from './components/AdminForm'
+import AdminForm from './components/AdminForm'
 import CarForm from './components/CarForm'
 // import CarList from './components/CarList'
 import MechanicForm from './components/MechanicForm'
@@ -9,6 +9,7 @@ import MechanicForm from './components/MechanicForm'
 const App = () => {
   return (
     <div>
+      <AdminForm />
       <Header />
       <CarForm />
       <MechanicForm />
