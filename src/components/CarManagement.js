@@ -6,7 +6,6 @@ const CarManagement = () => {
   const [cars, setCars] = useState([]);
   const [carToEdit, setCarToEdit] = useState(null);
 
-  // Load cars from local storage on initial render
   useEffect(() => {
     const storedCars = JSON.parse(localStorage.getItem('cars'));
     if (storedCars) {
@@ -14,7 +13,6 @@ const CarManagement = () => {
     }
   }, []);
 
-  // Save cars to local storage whenever the list changes
   useEffect(() => {
     localStorage.setItem('cars', JSON.stringify(cars));
   }, [cars]);

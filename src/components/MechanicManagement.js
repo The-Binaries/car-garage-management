@@ -6,7 +6,6 @@ const MechanicManagement = () => {
   const [mechanics, setMechanics] = useState([]);
   const [mechanicToEdit, setMechanicToEdit] = useState(null);
 
-  // Load mechanics from local storage on initial render
   useEffect(() => {
     const storedMechanics = JSON.parse(localStorage.getItem('mechanics'));
     if (storedMechanics) {
@@ -14,7 +13,6 @@ const MechanicManagement = () => {
     }
   }, []);
 
-  // Save mechanics to local storage whenever the list changes
   useEffect(() => {
     localStorage.setItem('mechanics', JSON.stringify(mechanics));
   }, [mechanics]);
