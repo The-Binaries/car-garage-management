@@ -3,6 +3,7 @@ import React from 'react';
 const MechanicList = ({ mechanics, onEdit, onDelete }) => {
   return (
     <div style={{ margin: '100px' }}>
+      <h2>Mechanic List</h2>
       <table className="ui celled table">
         <thead>
           <tr>

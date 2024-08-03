@@ -3,45 +3,47 @@ import MechanicForm from './MechanicForm';
 import MechanicList from './MechanicList';
 
 const MechanicManagement = () => {
-  const [mechanics, setMechanics] = useState([]);
-  const [editIndex, setEditIndex] = useState(null);
-
-  const addMechanic = (mechanic, index) => {
-    if (index !== null) {
-      // Edit existing mechanic
-      setMechanics(mechanics.map((m, i) => (i === index ? mechanic : m)));
-    } else {
-      // Add new mechanic
-      setMechanics([...mechanics, mechanic]);
-    }
+    const [mechanics, setMechanics] = useState([]);
+    const [mechanicToEdit, setMechanicToEdit] = useState(null);
+  
+    const addMechanic = (newMechanic, index = null) => {
+      if (index !== null) {
+        const updatedMechanics = mechanics.map((mechanic, i) =>
+          i === index ? newMechanic : mechanic
+        );
+        setMechanics(updatedMechanics);
+      } else {
+        setMechanics([...mechanics, newMechanic]);
+      }
+    };
+  
+    const editMechanic = (index) => {
+      setMechanicToEdit({ ...mechanics[index], index });
+    };
+  
+    const deleteMechanic = (index) => {
+      const updatedMechanics = mechanics.filter((_, i) => i !== index);
+      setMechanics(updatedMechanics);
+    };
+  
+    const cancelEdit = () => {
+      setMechanicToEdit(null);
+    };
+  
+    return (
+      <div>
+        <MechanicForm
+          addMechanic={addMechanic}
+          mechanicToEdit={mechanicToEdit}
+          onCancelEdit={cancelEdit}
+        />
+        <MechanicList
+          mechanics={mechanics}
+          onEdit={editMechanic}
+          onDelete={deleteMechanic}
+        />
+      </div>
+    );
   };
-
-  const handleEdit = (index) => {
-    setEditIndex(index);
-  };
-
-  const handleDelete = (index) => {
-    setMechanics(mechanics.filter((_, i) => i !== index));
-  };
-
-  const handleCancelEdit = () => {
-    setEditIndex(null);
-  };
-
-  return (
-    <div>
-      <MechanicForm
-        addMechanic={addMechanic}
-        mechanicToEdit={editIndex !== null ? { ...mechanics[editIndex], index: editIndex } : null}
-        onCancelEdit={handleCancelEdit}
-      />
-      <MechanicList
-        mechanics={mechanics}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-      />
-    </div>
-  );
-};
-
+  
 export default MechanicManagement;
