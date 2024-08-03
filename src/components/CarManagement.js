@@ -1,16 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import CarForm from './CarForm';
 import CarList from './CarList';
 
 const CarManagement = () => {
-    const [cars, setCars] = useState([]);
+  const [cars, setCars] = useState([]);
   const [carToEdit, setCarToEdit] = useState(null);
 
+  // Load cars from local storage on initial render
   useEffect(() => {
     const storedCars = JSON.parse(localStorage.getItem('cars'));
-    if (storedCars) setCars(storedCars);
+    if (storedCars) {
+      setCars(storedCars);
+    }
   }, []);
 
+  // Save cars to local storage whenever the list changes
   useEffect(() => {
     localStorage.setItem('cars', JSON.stringify(cars));
   }, [cars]);
@@ -48,4 +52,4 @@ const CarManagement = () => {
   );
 };
 
-export default CarManagement
+export default CarManagement;
