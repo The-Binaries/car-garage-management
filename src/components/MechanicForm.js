@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const MechanicForm = () => {
+const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
   const initialFormData = {
     firstName: '',
     middleName: '',
@@ -10,7 +10,17 @@ const MechanicForm = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (mechanicToEdit) {
+      setFormData({
+        ...mechanicToEdit,
+        experience: mechanicToEdit.experience || ''
+      });
+      setIsModalOpen(true);
+    }
+  }, [mechanicToEdit]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,27 +32,33 @@ const MechanicForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(formData, null, 2));
-    setIsModalOpen(false); 
+    if (mechanicToEdit) {
+      addMechanic(formData, mechanicToEdit.index);
+    } else {
+      addMechanic(formData);
+    }
+    setIsModalOpen(false);
+    setFormData(initialFormData);
   };
 
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen); 
+    setIsModalOpen(!isModalOpen);
     if (!isModalOpen) {
-      setFormData(initialFormData); 
+      setFormData(initialFormData);
+      onCancelEdit();
     }
   };
 
   return (
     <div style={{ margin: '100px' }}>
-      <h2 className="ui dividing header">Mechanic Garage</h2>
+      <h2 className="ui dividing header">Mechanic Form</h2>
       <button className="ui button primary" onClick={toggleModal}>
-        Add a New Mechanic
+        {mechanicToEdit ? 'Edit Mechanic' : 'Add a New Mechanic'}
       </button>
 
       {isModalOpen && (
         <div className="ui modal active" style={{ width: '80%' }}>
-          <div className="header">Add a new mechanic</div>
+          <div className="header">{mechanicToEdit ? 'Edit Mechanic' : 'Add a new mechanic'}</div>
           <i className="close icon" onClick={toggleModal}></i>
           <div className="content">
             <form className="ui form" onSubmit={handleSubmit}>
