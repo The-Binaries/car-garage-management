@@ -1,5 +1,5 @@
 import React from 'react'
-// import Header from './components/Header'
+import Header from './components/Header'
 // import AdminForm from './components/AdminForm'
 // import CarForm from './components/CarForm'
 // import CarList from './components/CarList'
@@ -9,7 +9,7 @@ import React from 'react'
 const App = () => {
   return (
     <div>
-      
+      <Header />
     </div>
   )
 }
