@@ -20,7 +20,7 @@ const AdminForm = ({ handleLogin }) => {
   return (
     <div style={{ margin: '100px' }}>
       <form className="ui form" onSubmit={handleSubmit}>
-        <div className="field">
+        <div className="four wide field">
           <label>E-mail</label>
           <input
             type="email"
@@ -30,7 +30,7 @@ const AdminForm = ({ handleLogin }) => {
           />
         </div>
 
-        <div className="field">
+        <div className="four wide field">
           <label>Password</label>
           <input
             type="password"

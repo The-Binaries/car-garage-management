@@ -73,6 +73,7 @@ const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
                     placeholder="Car ID"
                     value={formData.id}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="field">
@@ -83,6 +84,7 @@ const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
                     placeholder="Car Make"
                     value={formData.make}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="twelve wide field">
@@ -93,6 +95,7 @@ const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
                     placeholder="Car Model"
                     value={formData.model}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -105,6 +108,7 @@ const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
                     placeholder="Car Color"
                     value={formData.color}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="field">
@@ -115,6 +119,7 @@ const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
                     placeholder="Year"
                     value={formData.year}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="field">
@@ -125,6 +130,7 @@ const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
                     placeholder="Car Plate Number"
                     value={formData.plateNumber}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -136,6 +142,7 @@ const CarForm = ({ addCar, carToEdit, onCancelEdit }) => {
                   placeholder="Describe the fault"
                   value={formData.fault}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <button type="submit" className="ui button primary">

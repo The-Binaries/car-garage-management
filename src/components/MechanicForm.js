@@ -71,6 +71,7 @@ const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
                     placeholder="Mechanic ID"
                     value={formData.id}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               <div className="three fields">
@@ -82,6 +83,7 @@ const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
                     placeholder="First Name"
                     value={formData.firstName}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="field">
@@ -92,6 +94,7 @@ const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
                     placeholder="Middle Name"
                     value={formData.middleName}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="field">
@@ -102,6 +105,7 @@ const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
                     placeholder="Last Name"
                     value={formData.lastName}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -114,6 +118,7 @@ const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
                     placeholder="Expert Domain"
                     value={formData.expertDomain}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="field">
@@ -124,6 +129,7 @@ const MechanicForm = ({ addMechanic, mechanicToEdit, onCancelEdit }) => {
                     placeholder="Experience"
                     value={formData.experience}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
