@@ -7,8 +7,8 @@ import MechanicManagement from './components/MechanicManagement';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const validEmail = 'anurag@gmail.com';
-  const validPassword = 'anuragsourabh';
+  const validEmail = 'admin@gmail.com';
+  const validPassword = 'hello';
 
   const handleLogin = (email, password) => {
     if (email === validEmail && password === validPassword) {
