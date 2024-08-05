@@ -3,6 +3,7 @@ import React from 'react';
 const CarList = ({ cars, onEdit, onDelete }) => {
   return (
     <div style={{ margin: '100px' }}>
+        <h2 className="ui dividing header">Car List</h2>
       <table className="ui celled table">
         <thead>
           <tr>
